@@ -89,7 +89,7 @@ function HeroUnitFooter () {
 
 class HeroUnitBg extends React.Component {
   componentDidMount () {
-    const { delay } = this.props;
+    const { delay } = this.props
     const bgHeroSet = ReactDOM.findDOMNode(this)
     const img = bgHeroSet.querySelectorAll('img')
 
