@@ -1,3 +1,5 @@
+import ReactDOM from 'react-dom';
+
 import DownArrowIcon from '../resources/down-arrow-icon.svg'
 import NavigationBar from './NavigationBar'
 import ReactBKKLogo from '../resources/reactbkk.svg'
@@ -87,7 +89,7 @@ function HeroUnitFooter () {
 
 class HeroUnitBg extends React.Component {
   componentDidMount () {
-    const bgHeroSet = document.getElementById('bg-hero-set')
+    const bgHeroSet = ReactDOM.findDOMNode(this)
     const img = bgHeroSet.querySelectorAll('img')
 
     let pointer = 0
@@ -108,7 +110,7 @@ class HeroUnitBg extends React.Component {
 
   render () {
     return (
-      <div id='bg-hero-set' className='bg-hero-set'>
+      <div className='bg-hero-set'>
         <img src='static/hero-bg-01.jpg' alt='' className='fade-in' />
         <img src='static/hero-bg-02.jpg' alt='' />
         <img src='static/hero-bg-03.jpg' alt='' />
