@@ -75,10 +75,16 @@ function HeroUnitFooter () {
       <div className='nav'>
         <NavigationBar />
       </div>
-      <DownArrowIcon onClick={downArrowIconHandler} />
+      <div className='down-arrow-icon-wrapper'>
+        <DownArrowIcon onClick={downArrowIconHandler} />
+      </div>
       <style jsx>{`
         .nav {
           margin-bottom: 30px;
+        }
+        .down-arrow-icon-wrapper {
+          display: inline-block;
+          cursor: pointer;
         }
       `}</style>
     </div>
