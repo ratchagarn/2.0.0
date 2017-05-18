@@ -7,7 +7,7 @@ import ReactBKKLogo from '../resources/reactbkk.svg'
 export default function HeroUnit () {
   return (
     <header>
-      <HeroUnitBg />
+      <HeroUnitBg delay={5000} />
       <div className='bg-overlay' />
       <div className='spacer' />
       <div className='center'>
@@ -89,6 +89,7 @@ function HeroUnitFooter () {
 
 class HeroUnitBg extends React.Component {
   componentDidMount () {
+    const { delay } = this.props;
     const bgHeroSet = ReactDOM.findDOMNode(this)
     const img = bgHeroSet.querySelectorAll('img')
 
@@ -105,7 +106,7 @@ class HeroUnitBg extends React.Component {
         img[0].className = 'fade-in'
         pointer = 0
       }
-    }, 5000)
+    }, delay)
   }
 
   render () {
