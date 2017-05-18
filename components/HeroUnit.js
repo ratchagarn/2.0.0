@@ -18,7 +18,6 @@ export default function HeroUnit () {
         header {
           text-align: center;
           position: relative;
-          /* background: url(static/hero-bg.jpg) center no-repeat; */
           background-size: cover;
         }
         .bg-overlay {
