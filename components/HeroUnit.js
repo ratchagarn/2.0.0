@@ -75,7 +75,7 @@ function HeroUnitFooter () {
       <div className='nav'>
         <NavigationBar />
       </div>
-      <DownArrowIcon />
+      <DownArrowIcon onClick={ForDownArrowIconHandler} />
       <style jsx>{`
         .nav {
           margin-bottom: 30px;
@@ -83,4 +83,8 @@ function HeroUnitFooter () {
       `}</style>
     </div>
   )
+}
+
+function ForDownArrowIconHandler () {
+  window.scrollTo(0, document.getElementById('tickets').offsetTop)
 }
