@@ -5,6 +5,7 @@ import ReactBKKLogo from '../resources/reactbkk.svg'
 export default function HeroUnit () {
   return (
     <header>
+      <HeroUnitBg />
       <div className='bg-overlay' />
       <div className='spacer' />
       <div className='center'>
@@ -17,7 +18,7 @@ export default function HeroUnit () {
         header {
           text-align: center;
           position: relative;
-          background: url(static/hero-bg.jpg) center no-repeat;
+          /* background: url(static/hero-bg.jpg) center no-repeat; */
           background-size: cover;
         }
         .bg-overlay {
@@ -83,4 +84,67 @@ function HeroUnitFooter () {
       `}</style>
     </div>
   )
+}
+
+class HeroUnitBg extends React.Component {
+  componentDidMount () {
+    const bgHeroSet = document.getElementById('bg-hero-set')
+    const img = bgHeroSet.querySelectorAll('img')
+
+    let pointer = 0
+    const maxItems = img.length
+
+    setInterval(() => {
+      if (pointer < maxItems - 1) {
+        img[pointer].className = 'fade-out'
+        img[pointer + 1].className = 'fade-in'
+        pointer++
+      } else {
+        img[pointer].className = 'fade-out'
+        img[0].className = 'fade-in'
+        pointer = 0
+      }
+    }, 5000)
+  }
+
+  render () {
+    return (
+      <div id='bg-hero-set' className='bg-hero-set'>
+        <img src='static/hero-bg-01.jpg' alt='' className='fade-in' />
+        <img src='static/hero-bg-02.jpg' alt='' />
+        <img src='static/hero-bg-03.jpg' alt='' />
+        <style jsx>{`
+          .bg-hero-set {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+          }
+          .bg-hero-set > img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            opacity: 0;
+            transform: translateX(-50%) translateY(-50%);
+            transition: opacity 1s;
+          }
+          .bg-hero-set > img.fade-in {
+            opacity: 1;
+          }
+          .bg-hero-set > img.fade-out {
+            opacity: 0;
+          }
+          @media (max-width: 1024px) {
+            .bg-hero-set > img {
+              width: auto;
+              height: 100%;
+            }
+          }
+        `}</style>
+      </div>
+    )
+  }
 }
