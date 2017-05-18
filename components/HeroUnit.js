@@ -139,7 +139,7 @@ class HeroUnitBg extends React.Component {
           .bg-hero-set > img.fade-out {
             opacity: 0;
           }
-          @media (max-width: 1024px) {
+          @media (max-width: 1280px) {
             .bg-hero-set > img {
               width: auto;
               height: 100%;
